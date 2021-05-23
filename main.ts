@@ -38,7 +38,7 @@ export default class HideUrls extends Plugin {
   }
 
   async onload() {
-    this.app.workspace.on('file-open', () => {
+    this.app.workspace.on('layout-change', () => {
       let view = this.app.workspace.activeLeaf.view;
       if (view instanceof MarkdownView) {
         let cm = view.sourceMode.cmEditor;
