@@ -23,6 +23,9 @@ export default class HideUrls extends Plugin {
         let marker = cm.markText(start, end,
                                  {replacedWith : widget, clearOnEnter : true});
         widget.onclick = (e) => {
+          if (e.metaKey) {
+            return;
+          }
           cm.setSelection(marker.find().from, marker.find().to);
           marker.clear();
           cm.focus();
